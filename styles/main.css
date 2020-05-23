@@ -6,7 +6,7 @@
 
 .section-nav ol {
   margin-bottom: 1em ;
-  padding: 0;
+ padding: 1em;
 }
 
 .section-nav li.header {
@@ -24,4 +24,9 @@
   float: right;
   border: 1px solid #eee;
   margin: 0 0 .5em .5em;
+}
+
+.city {
+ width: 100%;
+ margin-bottom: .5em;
 }
