@@ -1,0 +1,27 @@
+.section-nav ul {
+  list-style-type: none;
+  margin-bottom: 1em ;
+  padding: 0;
+}
+
+.section-nav ol {
+  margin-bottom: 1em ;
+  padding: 0;
+}
+
+.section-nav li.header {
+  background-color: #ddd;
+  padding: .2em .4em;
+  margin-bottom: .2em;
+}
+
+.filter {
+  margin: .5em 0;
+}
+
+.bio {
+  width: 25%;
+  float: right;
+  border: 1px solid #eee;
+  margin: 0 0 .5em .5em;
+}
