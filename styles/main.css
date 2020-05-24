@@ -30,3 +30,7 @@
  width: 100%;
  margin-bottom: .5em;
 }
+
+.strike {
+  text-decoration: line-through;
+}
