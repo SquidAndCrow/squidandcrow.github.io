@@ -34,3 +34,9 @@
 .strike {
   text-decoration: line-through;
 }
+
+blockquote {
+  background-color: #ececec;
+  border: 1px solid #eee;
+  padding: .5em;
+}
