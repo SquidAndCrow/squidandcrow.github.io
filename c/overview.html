@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Character Overview</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link href="/styles/main.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <style>
+  p, li, .heading {
+    font-size: .5em;
+  }
+  ul li ul li {
+    font-size: 1em;
+  }
+    .char  {
+      height: 100vh;
+      overflow-y: scroll;
+    }
+
+    .toggle, .static {
+      font-size: 1.4em;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      margin-bottom: .5em;
+      padding: 0;
+    }
+
+    li {
+      margin: 0;
+    }
+    ul li ul {
+      margin-left: .4em;
+    }
+
+    em {
+      font-weight: bold;
+    }
+
+    .heading {
+      background-color: #000;
+      color: #fff;
+      padding: .3em .4em;
+      margin-bottom: .4em;
+    }
+
+    .heading a {
+      color: yellow;
+    }
+
+    .heading .icon, .heading .counter-controls {
+      float: right;
+    }
+
+    .toggle .heading, .counter-controls,.editable {
+      cursor: pointer;
+    }
+
+    .hiding, .editable-input {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="fluid-container">
+    <div class="row">
+      <div class="col-md-2 char">
+        <div class="info">
+          <h3>Liliana</h3>
+          <hr>
+          <div class="toggle">
+            <div class="heading">
+              Look <span class="icon">+</span>
+            </div>
+            <div class="body hiding">
+              <ul>
+                <li><em>Body</em>: Thin</li>
+                <li><em>Eyes</em>: Joyous</li>
+                <li><em>Hair</em>: Stylish Cap w/ Feather</li>
+                <li><em>Clothes</em>: Traveling</li>
+              </ul>
+            </div>
+          </div>
+          <div class="toggle">
+            <div class="heading">
+              Armor: 1 <span class="icon">+</span>
+            </div>
+            <div class="body hiding">
+              <ul>
+                <li>Leather Armor:
+                  <ul>
+                    <li>Armor 1</li>
+                    <li><em>Worn</em></li>
+                    <li>1 weight</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="static">
+            <div class="heading">
+              Hit Points: 15/<span class="editable">
+                <span class="value">15</span><span class="editable-input"><input type="text"><i class="fa fa-check-square save" aria-hidden="true"></i>
+                </span>
+              </span>
+            </div>
+          </div>
+          <div class="static">
+            <div class="heading">
+              Damage: <a href="" class="simple-roll" data-max="6" data-type="Damage">d6</a>
+            </div>
+          </div>
+          <div class="toggle">
+            <div class="heading">
+              Alignment: Good  <span class="icon">+</span>
+            </div>
+            <div class="body hiding">
+              <ul>
+                <li>Brutally Honest</li>
+                <li>Perform your art to aid someone else</li>
+              </ul>
+            </div>
+          </div>
+          <div class="toggle">
+            <div class="heading">
+              Stats  <span class="icon">+</span>
+            </div>
+            <div class="body hiding">
+              <ul>
+                <li><a href="" class="roll" data-mod="-1" data-type="Strength">Strength</a>: 8 (-1)</li>
+                <li><a href="" class="roll" data-mod="0" data-type="Dexterity">Dexterity</a>: 12 (0)</li>
+                <li><a href="" class="roll" data-mod="0" data-type="Constitution">Constitution</a>: 9 (0)</li>
+                <li><a href="" class="roll" data-mod="1" data-type="Intelligence">Intelligence</a>: 13 (+1)</li>
+                <li><a href="" class="roll" data-mod="1" data-type="Wisdom">Wisdom</a>: 15 (+1)</li>
+                <li><a href="" class="roll" data-mod="2" data-type="Charisma">Charisma</a>: 16 (+2)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="toggle">
+            <div class="heading">
+              Basic Moves  <span class="icon">+</span>
+            </div>
+            <div class="body hiding">
+              <ul>
+                <li><a href="" class="basic-move hack-n-slash" data-mod="-1" data-type="Hack &amp; Slash">Hack &amp; Slash</a><a href="" class="info" data-info="hack-n-slash"><i class="fa fa-info-circle" aria-hidden="true"></i></a></li>
+                <li><a href="" class="basic-move volley" data-mod="0" data-type="Volley">Volley</a></li>
+                <li><a href="" class="basic-move parley" data-mod="2" data-type="Parley">Parley</a></li>
+                <li><a href="" class="basic-move defy-danger-strength" data-mod="-1" data-type="Defy Danger: Strength">Defy Danger: Strength</a></li>
+                <li><a href="" class="basic-move defy-danger-dexterity" data-mod="0" data-type="Defy Danger: Dexterity">Defy Danger: Dexterity</a></li>
+                <li><a href="" class="basic-move defy-danger-constitution" data-mod="0" data-type="Defy Danger: Constitution">Defy Danger: Constitution</a></li>
+                <li><a href="" class="basic-move defy-danger-intelligence" data-mod="1" data-type="Defy Danger: Intelligence">Defy Danger: Intelligence</a></li>
+                <li><a href="" class="basic-move defy-danger-wisdom" data-mod="1" data-type="Defy Danger: Wisdom">Defy Danger: Wisdom</a></li>
+                <li><a href="" class="basic-move defy-danger-charisma" data-mod="2" data-type="Defy Danger: Charisma">Defy Danger: Charisma</a></li>
+                <li><a href="" class="basic-move defend" data-mod="0" data-type="Defend">Defend</a></li>
+                <li><a href="" class="basic-move discern-realities" data-mod="1" data-type="Discern Realities">Discern Realities</a></li>
+                <li><a href="" class="basic-move spout-lore" data-mod="1" data-type="Spout Lore">Spout Lore</a></li>
+                <li><a href="" class="basic-move aid-or-interfere" data-mod="1" data-type="Aid or Interfere">Aid or Interfere</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="toggle">
+            <div class="heading">
+              Special Moves  <span class="icon">+</span>
+            </div>
+            <div class="body hiding">
+              <ul>
+                <li><a href="" class="special-move last-breath" data-mod="-1" data-type="Last Breath">Last Breath</a></li>
+                <li><a href="" class="special-move take-watch" data-mod="1" data-type="Take Watch">Take Watch</a></li>
+                <li><a href="" class="special-move supply" data-mod="2" data-type="Supply">Supply</a></li>
+                <li><a href="" class="special-move perilous-journey" data-mod="2" data-type="Perilous Journey">Perilous Journey</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="toggle">
+            <div class="heading">
+              Class Moves  <span class="icon">+</span>
+            </div>
+            <div class="body hiding">
+              <ul>
+                <li><a href="" class="class-move arcane-art" data-mod="-1" data-type="Arcane Art">Arcane Art</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2 char">
+        <h3>Madonna</h3>
+
+      </div>
+      <div class="col-md-2 char">
+        <h3>Marky Mark</h3>
+      </div>
+      <div class="col-md-2 char">
+        <h3>Prince Franz</h3>
+      </div>
+      <div class="col-md-2 char">
+        <h3>Shiela</h3>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="rollModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="rollModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(document).ready(function() {
+      $('.toggle .heading').on('click', function(e){
+        e.preventDefault();
+        let target = $(this).next();
+        let self = $(this);
+        if(target.hasClass('showing')) {
+          target.addClass('hiding').removeClass('showing').hide();
+          self.find('.icon').html('+');
+        } else {
+          target.addClass('showing').removeClass('hiding').show();
+          self.find('.icon').html('-');
+        }
+      });
+
+      $('.editable').on('click', function(e) {
+        e.preventDefault();
+        let val = $(this).find('.value').html();
+        let input = $(this).find('.editable-input');
+        input.find('input').val(val);
+        input.show();
+      });
+
+      $('.save').on('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        let editable = $(this).parent().parent();
+        let newVal = editable.find('input').val();
+        editable.find('.editable-input').hide();
+        editable.find('.value').html(newVal);
+      });
+
+      $('.roll').on('click', function(e){
+        e.preventDefault();
+        let mod = $(this).data('mod');
+        let randMod = $(this).data('randomMod');
+        let die1 = Math.ceil(Math.random()*6);
+        let die2 = Math.ceil(Math.random()*6);
+        let title = $(this).data('type') + " Roll";
+        let total = die1 + die2 + mod;
+        if(randMod){
+          total += randMod;
+        }
+
+        let body = die1 + " + " + die2 + " + " + mod + ' = <span style="font-weight: bold; font-style: italic">' + total + '</span>';
+        $('#rollModal .modal-title').html(title);
+        $('#rollModal .modal-body').html(body);
+        $('#rollModal').modal();
+      });
+
+      $('.simple-roll').on('click', function(e){
+        e.preventDefault();
+        let mod = $(this).data('mod');
+        let max = $(this).data('max');
+        let randMod = $(this).data('randomMod');
+        let die1 = Math.ceil(Math.random()*max);
+        let title = $(this).data('type') + " Roll";
+        let total = die1;
+
+        if(mod){
+          total += mod;
+        }
+
+        if(randMod){
+          total += randMod;
+        }
+
+        let body = "Result: " + '<span style="font-weight: bold; font-style: italic">' + total + '</span>';
+        $('#rollModal .modal-title').html(title);
+        $('#rollModal .modal-body').html(body);
+        $('#rollModal').modal();
+      });
+
+      let generateAidOrInterfere = function(die1, die2, mod, total) {
+        let desc = "<p>When you <strong>help or hinder someone</strong>, roll+BOND</p>";
+        let roll = die1 + " + " + die2 + " + " + mod + ' = <span style="font-weight: bold; font-style: italic">' + total + '</span><hr>';
+        let result = "";
+
+        if(total<7) {
+          result = "<p>Attempt fails.</p>";
+        } else if (total < 10) {
+          result = "<p>On a 7–9, they take +1 or -2 to their roll, but you also expose yourself to danger, retribution, or cost.</p>";
+        } else {
+          result = "<p>On a 10+, they take +1 or -2 to their roll, your choice.</p>"
+        }
+
+        let body = desc + roll + result;
+        return body;
+      }
+
+      let generateHackNSlash = function(die1, die2, mod, total) {
+        let desc = "<p>When you <strong>attack an enemy in melee</strong>, roll+STR</p>";
+        let roll = die1 + " + " + die2 + " + " + mod + ' = <span style="font-weight: bold; font-style: italic">' + total + '</span><hr>';
+        let result = "";
+
+        if(total<7) {
+          result = "<p>Attempt fails.</p>";
+        } else if (total < 10) {
+          result = "<p>On a 7–9, you deal your damage to the enemy and the enemy makes an attack against you.</p>";
+        } else {
+          result = "<p>On a 10+, you deal your damage to the enemy and avoid their attack. At your option, you may choose to do +1d6 damage but expose yourself to the enemy’s attack.</p>"
+        }
+
+        let body = desc + roll + result;
+        return body;
+      }
+
+      let generateLastBreath = function(die1, die2, mod, total) {
+        let desc = "<p>When <strong>you’re dying</strong>, you catch a glimpse of what lies beyond the Black Gates of Death’s Kingdom (the GM will describe it). Then roll (just roll, +nothing—yeah, Death doesn’t care how tough or cool you are).</p>";
+        let roll = die1 + " + " + die2 + " + " + mod + ' = <span style="font-weight: bold; font-style: italic">' + total + '</span><hr>';
+        let result = "";
+
+        if(total<7) {
+          result = "<p>On 6-, your fate is sealed. You’re marked as Death’s own and you’ll cross the threshold soon. The GM will tell you when.</p>";
+        } else if (total < 10) {
+          result = "<p>On a 7–9, Death himself will offer you a bargain. Take it and stabilize or refuse and pass beyond the Black Gates into whatever fate awaits you. </p>";
+        } else {
+          result = "<p>On a 10+, you’ve cheated Death—you’re in a bad spot but you’re still alive.</p>"
+        }
+
+        let body = desc + roll + result;
+        return body;
+      }
+
+      let generateSpoutLore = function(die1, die2, mod, total) {
+        let desc = "<p>When you <strong>consult your accumulated knowledge about something</strong>, roll+INT</p>";
+        let roll = die1 + " + " + die2 + " + " + mod + ' = <span style="font-weight: bold; font-style: italic">' + total + '</span><hr>';
+        let result = "";
+
+        if(total<7) {
+          result = "<p>Attempt fails.</p>";
+        } else if (total < 10) {
+          result = "<p>On a 7–9, the GM will only tell you something interesting—it’s on you to make it useful. The GM might ask you “How do you know this?” Tell them the truth, now.</p>";
+        } else {
+          result = "<p>On a 10+, the GM will tell you something interesting and useful about the subject relevant to your situation.</p>"
+        }
+
+        let body = desc + roll + result;
+        return body;
+      }
+
+      let generateTakeWatch = function(die1, die2, mod, total) {
+        let desc = "<p>When you <strong>you’re on watch and something approaches the camp</strong>, roll+WIS</p>";
+        let roll = die1 + " + " + die2 + " + " + mod + ' = <span style="font-weight: bold; font-style: italic">' + total + '</span><hr>';
+        let result = "";
+
+        if(total<7) {
+          result = "<p>On a miss, whatever lurks outside the campfire’s light has the drop on you.</p>";
+        } else if (total < 10) {
+          result = "<p>On a 7–9, you react just a moment too late; your companions in camp are awake but haven’t had time to prepare. They have weapons and armor but little else.</p>";
+        } else {
+          result = "<p>On a 10+, you’re able to wake the camp and prepare a response, everyone in the camp takes +1 forward.</p>"
+        }
+
+        let body = desc + roll + result;
+        return body;
+      }
+
+      let generatePerilousJourney = function(die1, die2, mod, total) {
+        let desc = "<p>When you <strong>travel through hostile territory</strong>, roll+WIS</p>";
+        let roll = die1 + " + " + die2 + " + " + mod + ' = <span style="font-weight: bold; font-style: italic">' + total + '</span><hr>';
+        let result = "";
+
+        if(total<7) {
+          result = "<p>A bad thing related to the task chosen happens.</p>";
+        } else if (total < 10) {
+          result = "<p>On a 7–9, each role performs their job as expected: the normal number of rations are consumed, the journey takes about as long as expected, no one gets the drop on you but you don’t get the drop on them either</p>";
+        } else {
+          result = "<p>On a 10+</p>";
+          result += "<ul>";
+          result += "<li>&bull; the quartermaster reduces the number of rations required by one</li>";
+          result += "<li>&bull; the trailblazer reduces the amount of time it takes to reach your destination (the GM will say by how much)</li>";
+          result += "<li>&bull; the scout will spot any trouble quick enough to let you get the drop on it</li>";
+        }
+
+        let body = desc + roll + result;
+        return body;
+      }
+
+      let generateSupply = function(die1, die2, mod, total) {
+        let desc = "<p>When you <strong>go to buy something with gold on hand</strong>, if it’s something readily available in the settlement you’re in, you can buy it at market price. If it’s something special, beyond what’s usually available here, or non-mundane, roll+CHA</p>";
+        let roll = die1 + " + " + die2 + " + " + mod + ' = <span style="font-weight: bold; font-style: italic">' + total + '</span><hr>';
+        let result = "";
+
+        if(total<7) {
+          result = "<p>The items you're looking for are unavailable.</p>";
+        } else if (total < 10) {
+          result = "<p>On a 7–9, you’ll have to pay more or settle for something that’s not exactly what you wanted, but close. The GM will tell you what your options are.</p>";
+        } else {
+          result = "<p>On a 10+, you find what you’re looking for at a fair price.</p>"
+        }
+
+        let body = desc + roll + result;
+        return body;
+      }
+
+      let generateDefend = function(die1, die2, mod, total) {
+        let desc = "<p>When you <strong>stand in defense of a person, item, or location</strong>, roll+CON</p>";
+        let roll = die1 + " + " + die2 + " + " + mod + ' = <span style="font-weight: bold; font-style: italic">' + total + '</span><hr>';
+        let result = "";
+
+        if(total<7) {
+          result = "<p>Attempt fails.</p>";
+        } else if (total < 10) {
+          result = "<p>On a 7–9, hold 1. As long as you stand in defense, when you or the thing you defend is attacked you may spend hold, 1 for 1, to choose an option:</p>";
+          result += "<ul>";
+          result += "<li>&bull; Redirect an attack from the thing you defend to yourself</li>";
+          result += "<li>&bull; Halve the attack’s effect or damage</li>";
+          result += "<li>&bull; Open up the attacker to an ally giving that ally +1 forward against the attacker</li>";
+          result += "<li>&bull; Deal damage to the attacker equal to your level</li>";
+          result += "</ul>";
+        } else {
+          result = "<p>On a 10+, hold 3. As long as you stand in defense, when you or the thing you defend is attacked you may spend hold, 1 for 1, to choose an option:</p>";
+          result += "<ul>";
+          result += "<li>&bull; Redirect an attack from the thing you defend to yourself</li>";
+          result += "<li>&bull; Halve the attack’s effect or damage</li>";
+          result += "<li>&bull; Open up the attacker to an ally giving that ally +1 forward against the attacker</li>";
+          result += "<li>&bull; Deal damage to the attacker equal to your level</li>";
+          result += "</ul>";
+        }
+
+        let body = desc + roll + result;
+        return body;
+      }
+
+      let generateDiscernRealities = function(die1, die2, mod, total) {
+        let desc = "<p>When you <strong>closely study a situation or person</strong>, roll+WIS</p>";
+        let roll = die1 + " + " + die2 + " + " + mod + ' = <span style="font-weight: bold; font-style: italic">' + total + '</span><hr>';
+        let result = "";
+
+        if(total<7) {
+          result = "<p>Attempt fails.</p>";
+        } else if (total < 10) {
+          result = "<p>On a 7–9, ask 1. Take +1 forward when acting on the answers.</p>";
+          result += "<ul>";
+          result += "<li>&bull; What happened here recently?</li>";
+          result += "<li>&bull; What is about to happen?</li>";
+          result += "<li>&bull; What should I be on the lookout for?</li>";
+          result += "<li>&bull; What here is useful or valuable to me?</li>";
+          result += "<li>&bull; Who’s really in control here?</li>";
+          result += "<li>&bull; What here is not what it appears to be?</li>";
+          result += "</ul>";
+        } else {
+          result = "<p>On a 10+, ask the GM 3 questions from the list below. Take +1 forward when acting on the answers.</p>";
+          result += "<ul>";
+          result += "<li>&bull; What happened here recently?</li>";
+          result += "<li>&bull; What is about to happen?</li>";
+          result += "<li>&bull; What should I be on the lookout for?</li>";
+          result += "<li>&bull; What here is useful or valuable to me?</li>";
+          result += "<li>&bull; Who’s really in control here?</li>";
+          result += "<li>&bull; What here is not what it appears to be?</li>";
+          result += "</ul>";
+        }
+
+        let body = desc + roll + result;
+        return body;
+      }
+
+      let generateVolley = function(die1, die2, mod, total) {
+        let desc = "<p>When you <strong>take aim and shoot at an enemy at range</strong>, roll+DEX</p>";
+        let roll = die1 + " + " + die2 + " + " + mod + ' = <span style="font-weight: bold; font-style: italic">' + total + '</span><hr>';
+        let result = "";
+
+        if(total<7) {
+          result = "<p>Attempt fails.</p>";
+        } else if (total < 10) {
+          result = "<p>On a 7–9, choose one:</p>";
+          result += "<ul>";
+          result += "<li>&bull; You have to move to get the shot placing you in danger as described by the GM</li>";
+          result += "<li>&bull; You have to take what you can get: -1d6 damage</li>";
+          result += "<li>&bull; You have to take several shots, reducing your ammo by one</li>";
+          result += "</ul>";
+        } else {
+          result = "<p>On a 10+, you have a clear shot—deal your damage.</p>"
+        }
+
+        let body = desc + roll + result;
+        return body;
+      }
+
+      let generateDefyDanger = function(stat, die1, die2, mod, total) {
+        let desc = "<p>When you <strong>act despite an imminent threat or suffer a calamity</strong> ";
+
+        if(stat == "str") {
+          desc += "by powering through, roll+STR"
+        }
+
+        if(stat == "dex") {
+          desc += "by getting out of the way or acting fast, roll+DEX"
+        }
+
+        if(stat == "con") {
+          desc += "by enduring, roll+CON"
+        }
+
+        if(stat == "int") {
+          desc += "with quick thinking, roll+INT"
+        }
+
+        if(stat == "wis") {
+          desc += "through mental fortitude, roll+WIS"
+        }
+
+        if(stat == "cha") {
+          desc += "using charm and social grace, roll+CHA"
+        }
+
+        desc += "</p>";
+
+
+        let roll = die1 + " + " + die2 + " + " + mod + ' = <span style="font-weight: bold; font-style: italic">' + total + '</span><hr>';
+        let result = "";
+
+        if(total<7) {
+          result = "<p>Attempt fails.</p>";
+        } else if (total < 10) {
+          result = "<p>On a 7–9, you stumble, hesitate, or flinch: the GM will offer you a</p>";
+          result += "<ul>";
+          result += "<li>&bull; worse outcome</li>";
+          result += "<li>&bull; hard bargain</li>";
+          result += "<li>&bull; ugly choice</li>";
+          result += "</ul>";
+        } else {
+          result = "<p>On a 10+, you do what you set out to, the threat doesn’t come to bear.</p>"
+        }
+
+        let body = desc + roll + result;
+        return body;
+      }
+
+      $('.basic-move').on('click', function(e){
+        e.preventDefault();
+        let mod = $(this).data('mod');
+        let randMod = $(this).data('randomMod');
+        let die1 = Math.ceil(Math.random()*6);
+        let die2 = Math.ceil(Math.random()*6);
+        let title = $(this).data('type') + " Roll";
+        let total = die1 + die2 + mod;
+        if(randMod){
+          total += randMod;
+        }
+
+        let body = "";
+
+        if($(this).hasClass('hack-n-slash')){
+          body = generateHackNSlash(die1, die2, mod, total);
+        }
+
+        if($(this).hasClass('volley')){
+          body = generateVolley(die1, die2, mod, total);
+        }
+
+        if($(this).hasClass('defy-danger-strength')){
+          body = generateDefyDanger("str", die1, die2, mod, total);
+        }
+
+        if($(this).hasClass('defy-danger-dexterity')){
+          body = generateDefyDanger("dex", die1, die2, mod, total);
+        }
+
+        if($(this).hasClass('defy-danger-constitution')){
+          body = generateDefyDanger("con", die1, die2, mod, total);
+        }
+
+        if($(this).hasClass('defy-danger-intelligence')){
+          body = generateDefyDanger("int", die1, die2, mod, total);
+        }
+
+        if($(this).hasClass('defy-danger-wisdom')){
+          body = generateDefyDanger("wis", die1, die2, mod, total);
+        }
+
+        if($(this).hasClass('defy-danger-charisma')){
+          body = generateDefyDanger("cha", die1, die2, mod, total);
+        }
+
+        if($(this).hasClass('defend')){
+          body = generateDefend(die1, die2, mod, total);
+        }
+
+        if($(this).hasClass('spout-lore')){
+          body = generateSpoutLore(die1, die2, mod, total);
+        }
+
+        if($(this).hasClass('discern-realities')){
+          body = generateDiscernRealities(die1, die2, mod, total);
+        }
+
+        if($(this).hasClass('aid-or-interfere')){
+          body = generateAidOrInterfere(die1, die2, mod, total);
+        }
+
+        $('#rollModal .modal-title').html(title);
+        $('#rollModal .modal-body').html(body);
+        $('#rollModal').modal();
+      });
+
+      $('.special-move').on('click', function(e){
+        e.preventDefault();
+        let mod = $(this).data('mod');
+        let randMod = $(this).data('randomMod');
+        let die1 = Math.ceil(Math.random()*6);
+        let die2 = Math.ceil(Math.random()*6);
+        let title = $(this).data('type') + " Roll";
+        let total = die1 + die2 + mod;
+        if(randMod){
+          total += randMod;
+        }
+
+        let body = "";
+
+        if($(this).hasClass('last-breath')){
+          body = generateLastBreath(die1, die2, mod, total);
+        }
+
+        if($(this).hasClass('take-watch')){
+          body = generateTakeWatch(die1, die2, mod, total);
+        }
+
+        if($(this).hasClass('perilous-journey')){
+          body = generatePerilousJourney(die1, die2, mod, total);
+        }
+
+        if($(this).hasClass('supply')){
+          body = generateSupply(die1, die2, mod, total);
+        }
+
+        $('#rollModal .modal-title').html(title);
+        $('#rollModal .modal-body').html(body);
+        $('#rollModal').modal();
+      });
+    });
+  </script>
+</body>
+</html>
