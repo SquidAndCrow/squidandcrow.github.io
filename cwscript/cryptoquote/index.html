@@ -109,11 +109,11 @@
         for(i=0; i<arr.length; i++) {
           for(j = 0; j<arr[i].length; j++) {
               if(cipherArr.indexOf(arr[i][j].toLowerCase()) != -1){
-                svg.rect(x * j, y * i + 2, 50, 50, {fill: 'white', stroke: 'black', strokeWidth: 2});
-                svg.text(j*50 + 25, i*120 + 90, crypto(arr[i][j]).toUpperCase(),  {fontFamily: 'Verdana', fontSize: '36', fill: 'black', textAnchor: 'middle'});
+                svg.rect(x * j + (5*j), y * i + 10, 50, 50, {fill: 'white', stroke: 'black', strokeWidth: 2});
+                svg.text(j*55 + 25, i*120 + 90, crypto(arr[i][j]).toUpperCase(),  {fontFamily: 'Verdana', fontSize: '36', fill: 'black', textAnchor: 'middle'});
               } else {
-                svg.text(j*50 + 25, i*120 + 40, arr[i][j],  {fontFamily: 'Verdana', fontSize: '36', fill: 'black', textAnchor: 'middle'});
-                svg.text(j*50 + 25, i*120 + 90, arr[i][j],  {fontFamily: 'Verdana', fontSize: '36', fill: 'black', textAnchor: 'middle'});
+                svg.text(j*55 + 25, i*120 + 40, arr[i][j],  {fontFamily: 'Verdana', fontSize: '36', fill: 'black', textAnchor: 'middle'});
+                svg.text(j*55 + 25, i*120 + 90, arr[i][j],  {fontFamily: 'Verdana', fontSize: '36', fill: 'black', textAnchor: 'middle'});
               }
 
               //svg.text(j*50 + 12, i*50 + 40, arr[i][j],  {fontFamily: 'Verdana', fontSize: '36', fill: textColorPrimary});
