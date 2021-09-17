@@ -105,19 +105,36 @@
       let updateGrid = function(arr) {
         let x = 50;
         let y = 120;
+        let punctuationOffset = 0;
         let gridNum = 0;
         for(i=0; i<arr.length; i++) {
           for(j = 0; j<arr[i].length; j++) {
               if(cipherArr.indexOf(arr[i][j].toLowerCase()) != -1){
-                svg.rect(x * j + (5*j), y * i + 10, 50, 50, {fill: 'white', stroke: 'black', strokeWidth: 2});
-                svg.text(j*55 + 25, i*120 + 90, crypto(arr[i][j]).toUpperCase(),  {fontFamily: 'Verdana', fontSize: '36', fill: 'black', textAnchor: 'middle'});
+                svg.rect(x * j + (5*j) + punctuationOffset, y * i + 10, 50, 50, {fill: 'white', stroke: 'black', strokeWidth: 2});
+                svg.text(j*55 + 24 + punctuationOffset, i*120 + 90, crypto(arr[i][j]).toUpperCase(),  {fontFamily: 'Verdana', fontSize: '36', fill: 'black', textAnchor: 'middle'});
+              } else if (arr[i][j] == "."|| arr[i][j] == "," || arr[i][j] == "'"){
+                svg.text(j*55 + 5 + punctuationOffset, i*120 + 50, arr[i][j],  {fontFamily: 'Verdana', fontSize: '36', fill: 'black', textAnchor: 'middle'});
+                svg.text(j*55 + 5 + punctuationOffset, i*120 + 90, arr[i][j],  {fontFamily: 'Verdana', fontSize: '36', fill: 'black', textAnchor: 'middle'});
+                punctuationOffset -= 35;
+              } else if (arr[i][j] == "?" || arr[i][j] == "!"){
+                svg.text(j*55 + 8 + punctuationOffset, i*120 + 50, arr[i][j],  {fontFamily: 'Verdana', fontSize: '36', fill: 'black', textAnchor: 'middle'});
+                svg.text(j*55 + 8 + punctuationOffset, i*120 + 90, arr[i][j],  {fontFamily: 'Verdana', fontSize: '36', fill: 'black', textAnchor: 'middle'});
+                punctuationOffset -= 30;
+              } else if(arr[i][j] == '"' && j == 0) {
+                svg.text(5, i*120 + 40, arr[i][j],  {fontFamily: 'Verdana', fontSize: '36', fill: 'black', textAnchor: 'middle'});
+                svg.text(5, i*120 + 90, arr[i][j],  {fontFamily: 'Verdana', fontSize: '36', fill: 'black', textAnchor: 'middle'});
+                punctuationOffset -= 35;
+              } else if(arr[i][j] == '"' && j + 1 == arr[i].length) {
+                svg.text(j*55 + punctuationOffset, i*120 + 40, arr[i][j],  {fontFamily: 'Verdana', fontSize: '36', fill: 'black', textAnchor: 'middle'});
+                svg.text(j*55 + punctuationOffset, i*120 + 90, arr[i][j],  {fontFamily: 'Verdana', fontSize: '36', fill: 'black', textAnchor: 'middle'});
               } else {
-                svg.text(j*55 + 25, i*120 + 40, arr[i][j],  {fontFamily: 'Verdana', fontSize: '36', fill: 'black', textAnchor: 'middle'});
-                svg.text(j*55 + 25, i*120 + 90, arr[i][j],  {fontFamily: 'Verdana', fontSize: '36', fill: 'black', textAnchor: 'middle'});
+                svg.text(j*55 + 25 + punctuationOffset, i*120 + 40, arr[i][j],  {fontFamily: 'Verdana', fontSize: '36', fill: 'black', textAnchor: 'middle'});
+                svg.text(j*55 + 25 + punctuationOffset, i*120 + 90, arr[i][j],  {fontFamily: 'Verdana', fontSize: '36', fill: 'black', textAnchor: 'middle'});
               }
 
               //svg.text(j*50 + 12, i*50 + 40, arr[i][j],  {fontFamily: 'Verdana', fontSize: '36', fill: textColorPrimary});
           }
+          punctuationOffset = 0;
           gridNum++;
         }
       }
