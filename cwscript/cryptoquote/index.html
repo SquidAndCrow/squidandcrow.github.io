@@ -51,10 +51,21 @@
         return array;
       }
 
+      let dedupeArr = function() {
+        for(let i = 0; i < letterArr.length; i++) {
+          if(letterArr[i] == cipherArr[i]) {
+            cipherArr = shuffle(cipherArr);
+            dedupeArr();
+            return;
+          }
+        }
+      }
+
       let genCipher = function() {
         let alpha = "abcdefghijklmnopqrstuvwxyz";
         letterArr = alpha.split('');
         cipherArr = shuffle(alpha.split(''));
+        dedupeArr();
         dispCipher();
       }
 
