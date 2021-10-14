@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>cwscript</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../css/jquery.svg.css">
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+<script type="text/javascript" src="../js/jquery.svg.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<style>
+  textarea.form-control {
+    height: 90vh  ;
+    font-size: .6em;
+    line-height: .8em;
+    font-family: 'Source Code Pro', monospace;
+    margin-top: 1em;
+  }
+</style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2">
+        <label>Width: <input type="number" class="width form-control"></label>
+        <label>Height: <input type="number" class="height form-control"></label>
+
+      </div>
+      <div class="col-md-6">
+        <div id="cw" style="height: 200vh">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <textarea class="form-control answer-array"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function(){
+
+      let showAnswers = true;
+      let squareBGColor = 'white';
+      let darkSquareStroke = 'black';
+
+      $("#cw").svg();
+      var svg = $('#cw').svg('get');
+
+      let gridArr = [];
+      let answerArr = []; //this is the array created by clicking squares
+      let compiledAnswerArray = []; //this is the array representing the visible grid
+
+      let makePuzzle = function(grid) {
+        svg.clear();
+        gridArr = [];
+        let height = $('.height').val();
+        let width = $('.width').val();
+
+        for (let i = 0; i < height; i++) {
+          gridArr[i] = []
+          let t = [];
+          for(let j = 0; j < width; j++) {
+            t.push('0');
+          }
+          gridArr[i].push(t);
+        }
+        updateGrid(gridArr);
+      }
+
+      $(".width, .height").on('input', function(){
+        makePuzzle();
+      });
+
+      let updateGrid = function(arr) {
+        let x = 15;
+        let y = 15;
+        for(i=0; i<arr.length; i++) {
+          for(j = 0; j<arr[i][0].length; j++) {
+            fillCol = 'white';
+            if(typeof answerArr[j] != 'undefined' && answerArr[j][i] == 1) {
+              fillCol = 'black';
+            }
+            svg.rect(x * j + (15*arr[i][0].length), y * i + 1 + (15*arr.length), 15, 15, {fill: fillCol, stroke: darkSquareStroke, strokeWidth: 1, dx:j, dy:i});
+          }
+        }
+      }
+
+      let createClues = function() {
+        let cols = [];
+        let rows = [];
+
+        //for the row clues
+        for(let i = 0; i<compiledAnswerArray[0].length; i++){
+          let t = [];
+          let adjacentCells = 0;
+          for(let j = 0; j < compiledAnswerArray.length; j++) {
+            if(adjacentCells > 0 && j == compiledAnswerArray.length -1){
+              t.push(adjacentCells);
+            } if(adjacentCells > 0 && compiledAnswerArray[j][i] == 0) {
+                t.push(adjacentCells);
+                adjacentCells = 0;
+            } else if(compiledAnswerArray[j][i] == 1) {
+              adjacentCells++;
+            }
+          }
+          rows.push(t);
+        }
+        console.log(rows)
+      }
+
+      let updateAnswerArrView = function() {
+        let msg = "";
+        let height = $('.height').val();
+        let width = $('.width').val();
+        compiledAnswerArray = [];
+
+        for(let i = 0; i < height; i++) {
+          for(let j = 0; j< width; j++) {
+            if(j == 0) {
+              msg += '[';
+            }
+            if(typeof answerArr[j] == 'undefined' || typeof answerArr[j][i] == 'undefined') {
+              if(typeof compiledAnswerArray[j] == 'undefined'){
+                compiledAnswerArray[j] = new Array();
+              }
+              compiledAnswerArray[j][i] = 0;
+              msg += '0,';
+            } else {
+              msg += answerArr[j][i] + ",";
+              if(typeof compiledAnswerArray[j] == 'undefined'){
+                compiledAnswerArray[j] = new Array();
+              }
+              compiledAnswerArray[j][i] = answerArr[j][i];
+            }
+            if(j == width - 1) {
+              msg = msg.slice(0, -1);
+              msg += '],';
+            }
+          }
+          if(i != height-1) {
+            //msg += '\n\r';
+          }
+
+
+        }
+        msg = msg.slice(0, -1);
+        $('.answer-array').val(msg);
+        createClues();
+      }
+
+      $('#cw').on('click', 'rect', function(e) {
+        e.preventDefault();
+        let x = $(this).attr('dx');
+        let y = $(this).attr('dy');
+        if(typeof answerArr[x] == 'undefined') {
+          answerArr[x] = new Array();
+        }
+        if(answerArr[x][y] == 1) {
+          answerArr[x][y] = 0;
+        } else {
+          answerArr[x][y] = 1;
+        }
+        updateAnswerArrView();
+        updateGrid(gridArr);
+      })
+    });
+  </script>
+</body>
+</html>
