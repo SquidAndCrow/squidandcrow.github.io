@@ -13,144 +13,259 @@
     <div class="col-md-12">
       <h2>SLA Reference</h2>
       <p>It does the work, so you don't have to try and remember!</p>
-
     </div>
-      <div class="col-md-6">
-              <h4>SLC Calculator</h4>
-        <p>What is your current rank? <input type="text" class="current-rank form-control"></p>
-        <p>How much are you adding? <input type="text" class="add-points form-control"><br>
-          <a href="" class="btn btn-primary calc-sla">Math!</a></p><p>Result <input type="text" class="result form-control"></p></div>
-          <div class="col-md-6">
-            <h3>Armor Repair</h3>
-            <p>The cost of repairing armour is 5x the armour’s full PV value per point of Resistance being repaired.</p>
-            </div>
-        </div>
-
-        <div class="row">
-      <div class="col-md-6">
-        <hr>
-        <h4>Stat Increase Chart</h4>
-        <table class="table striped">
-          <thead>
-            <tr>
-              <th>Current\New Rank</th>
-              <th>1</th>
-              <th>2</th>
-              <th>3</th>
-              <th>4</th>
-              <th>5</th>
-              <th>6</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>0</th>
-              <td>5</td>
-              <td>11</td>
-              <td>18</td>
-              <td>26</td>
-              <td>35</td>
-              <td>45</td>
-            </tr>
-            <tr>
-              <th>1</th>
-              <td>-</td>
-              <td>6</td>
-              <td>13</td>
-              <td>21</td>
-              <td>30</td>
-              <td>40</td>
-            </tr>
-            <tr>
-              <th>2</th>
-              <td>-</td>
-              <td>-</td>
-              <td>7</td>
-              <td>15</td>
-              <td>24</td>
-              <td>34</td>
-            </tr>
-            <tr>
-              <th>3</th>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>8</td>
-              <td>17</td>
-              <td>27</td>
-            </tr>
-            <tr>
-              <th>4</th>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>9</td>
-              <td>19</td>
-            </tr>
-            <tr>
-              <th>5</th>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>10</td>
-            </tr>
-          </tbody>
-        </table>
+  </div>
+  <div class="row" style="margin-bottom: 1em;">
+    <h4>Dice Roller</h4>
+    <div class="col-md-2">
+      <h6>Stat</h6>
+      <select class="form-control stat">
+        <option></option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <h6>Ranks</h6>
+      <select class="form-control ranks">
+        <option value="0"></option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <h6>Success Die Modifier</h6>
+      <select class="form-control success">
+        <option value="0" value="0"></option>
+        <option value="2">+2</option>
+        <option value="1">+1</option>
+        <option>0</option>
+        <option value="-1">-1</option>
+        <option value="-2">-2</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <h6>Skill Die Modifier</h6>
+      <select class="form-control skill">
+        <option value="0"></option>
+        <option value="2">+2</option>
+        <option value="1">+1</option>
+        <option>0</option>
+        <option value="-1">-1</option>
+        <option value="-2">-2</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <h6>Difficulty</h6>
+      <select class="form-control difficulty">
+        <option value="0"></option>
+        <option>4</option>
+        <option>7</option>
+        <option>10</option>
+        <option>13</option>
+        <option>16</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <p style="padding-top: .2em"><br><a href="" class="btn btn-primary roll">Roll!</a></p>
+    </div>
+    <div class="col-md-12">
+      <div class="results">
       </div>
-      <div class="col-md-6">
-        <hr>
-        <h4>Skill Increase Chart</h4>
-        <table class="table striped">
-          <thead>
-            <tr>
-              <th>Current\New Rank</th>
-              <th>1</th>
-              <th>2</th>
-              <th>3</th>
-              <th>4</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>0</th>
-              <td>2</td>
-              <td>7</td>
-              <td>15</td>
-              <td>26+500c (29 for Ebb)</td>
-            </tr>
-            <tr>
-              <th>1</th>
-              <td>-</td>
-              <td>5</td>
-              <td>13</td>
-              <td>24+500c (27 for Ebb)</td>
-            </tr>
-            <tr>
-              <th>2</th>
-              <td>-</td>
-              <td>-</td>
-              <td>8</td>
-              <td>19+500c (22 for Ebb)</td>
-            </tr>
-            <tr>
-              <th>3</th>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>11+500c (14 for Ebb)</td>
-            </tr>
-          </tbody>
-        </table>
-        <p>Obtaining rank 4 in a skill also requires a downtime representing a period of at least two weeks, along with a cost of 500c to cover the practice, training and/or certification required. Ebb disciplines do not incur a credit cost to increase to rank 4, but instead cost an additional three experience points.</p>
-      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <h4>SLC Calculator</h4>
+      <p>What is your current rank? <input type="text" class="current-rank form-control"></p>
+      <p>How much are you adding? <input type="text" class="add-points form-control"><br>
+      <a href="" class="btn btn-primary calc-sla">Math!</a></p><p>Result <input type="text" class="result form-control"></p>
+    </div>
+    <div class="col-md-6">
+      <h3>Armor Repair</h3>
+      <p>The cost of repairing armour is 5x the armour’s full PV value per point of Resistance being repaired.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <hr>
+      <h4>Stat Increase Chart</h4>
+      <table class="table striped">
+        <thead>
+          <tr>
+            <th>Current\New Rank</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>0</th>
+            <td>5</td>
+            <td>11</td>
+            <td>18</td>
+            <td>26</td>
+            <td>35</td>
+            <td>45</td>
+          </tr>
+          <tr>
+            <th>1</th>
+            <td>-</td>
+            <td>6</td>
+            <td>13</td>
+            <td>21</td>
+            <td>30</td>
+            <td>40</td>
+          </tr>
+          <tr>
+            <th>2</th>
+            <td>-</td>
+            <td>-</td>
+            <td>7</td>
+            <td>15</td>
+            <td>24</td>
+            <td>34</td>
+          </tr>
+          <tr>
+            <th>3</th>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>8</td>
+            <td>17</td>
+            <td>27</td>
+          </tr>
+          <tr>
+            <th>4</th>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>9</td>
+            <td>19</td>
+          </tr>
+          <tr>
+            <th>5</th>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>10</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <hr>
+      <h4>Skill Increase Chart</h4>
+      <table class="table striped">
+        <thead>
+          <tr>
+            <th>Current\New Rank</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>0</th>
+            <td>2</td>
+            <td>7</td>
+            <td>15</td>
+            <td>26+500c (29 for Ebb)</td>
+          </tr>
+          <tr>
+            <th>1</th>
+            <td>-</td>
+            <td>5</td>
+            <td>13</td>
+            <td>24+500c (27 for Ebb)</td>
+          </tr>
+          <tr>
+            <th>2</th>
+            <td>-</td>
+            <td>-</td>
+            <td>8</td>
+            <td>19+500c (22 for Ebb)</td>
+          </tr>
+          <tr>
+            <th>3</th>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>11+500c (14 for Ebb)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Obtaining rank 4 in a skill also requires a downtime representing a period of at least two weeks, along with a cost of 500c to cover the practice, training and/or certification required. Ebb disciplines do not incur a credit cost to increase to rank 4, but instead cost an additional three experience points.</p>
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
   $(document).ready(function(){
+
+    let getRandomInt = function(max) {
+      return Math.floor(Math.random() * max) + 1;
+    }
+
+    $('.roll').on('click', function(e){
+      e.preventDefault();
+      console.log('rolling');
+      let stat = parseInt($('.stat').val());
+      let ranks = parseInt($('.ranks').val());
+      let success = parseInt($('.success').val());
+      let skill = parseInt($('.skill').val());
+      let difficulty = parseInt($('.difficulty').val());
+      console.log(stat, ranks, success, skill, difficulty);
+
+      let successRoll = getRandomInt(10) + stat + ranks + success;// + baseBonus + success;
+      let rollArr = [];
+      rollArr.push(successRoll);
+
+
+      for (let i = 0; i<ranks; i++) {
+        rollArr.push(getRandomInt(10) + stat + ranks + skill);// + baseBonus + skill);
+      }
+
+      console.log(rollArr);
+
+      let msg = "";
+      let resultDescription = "";
+      let successCount = 0;
+      let skillCount = 0;
+      let count = 0;
+      rollArr.forEach(function(i){
+        msg += `<span class="alert ${(i >= difficulty) ? "alert-success" : "alert-warning"}">${i}</span>`;
+        if(count == 0) {
+          if(i >= difficulty) {
+            successCount++;
+          }
+        } else {
+          if(i >= difficulty) {
+            skillCount++;
+          }
+        }
+        count++;
+      });
+      $('.results').html(msg).append(` ${successCount} : Success; ${skillCount} : Skill`);
+
+    });
+
+
     letterArr = [];
     letterArr[0] = 'AA'
     letterArr[1] = 'A';
