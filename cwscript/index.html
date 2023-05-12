@@ -20,7 +20,9 @@
           <li>'#' makes a black square</li>
           <li>A number (e.g. 12) makes a white square with that number</li>
           <li>'e' makes an empty white square</li>
+          <li>'o' makes an empty white square with a circle in it</li>
           <li>'-' makes an empty light-grey square</li>
+          <li>'o-' makes an empty grey square with a circle in it</li>
           <li>'-' followed by a number (e.g. -14) will create a grey square with that number</li>
         </ul>
       </div>
@@ -61,9 +63,15 @@
               svg.rect(x * j, y * i + 2, 50, 50, {fill: 'white', stroke: 'black', strokeWidth: 2});
             } else if (arr[i][j] === "-"){
               svg.rect(x * j, y * i + 2, 50, 50, {fill: '#eeeeee', stroke: 'black', strokeWidth: 2});
+            } else if (arr[i][j] === "o"){
+              svg.rect(x * j, y * i + 2, 50, 50, {fill: 'white', stroke: 'black', strokeWidth: 2});
+              svg.circle(x * j+25, y * i + 27, 24, {fill: 'white', stroke: 'black', strokeWidth: 1});
             } else if (arr[i][j].length > 1 &&  arr[i][j].substring(0,1) === "-"){
               svg.rect(x * j, y * i + 2, 50, 50, {fill: '#eeeeee', stroke: 'black', strokeWidth: 2});
               svg.text(j*50 + 2, i*50 + 15, arr[i][j].substring(1,arr[i][j].length),  {fontFamily: 'Verdana', fontSize: '12', fill: 'black'});
+            } else if (arr[i][j].length > 1 &&  arr[i][j].substring(0,1) === "o"){
+              svg.rect(x * j, y * i + 2, 50, 50, {fill: '#eeeeee', stroke: 'black', strokeWidth: 2});
+              svg.circle(x * j+25, y * i + 27, 24, {fill: '#eeeeee', stroke: 'black', strokeWidth: 1});
             } else {
               svg.rect(x * j, y * i + 2, 50, 50, {fill: 'white', stroke: 'black', strokeWidth: 2});
               svg.text(j*50 + 2, i*50 + 15, arr[i][j],  {fontFamily: 'Verdana', fontSize: '12', fill: 'black'});
